@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -20,17 +21,18 @@ public class CustomerService {
     }
 
     public Customer getCustomer(Long id) {
-        return cusRepository.findById(id).get();
+        return cusRepository.findById(id).orElse(null);
     }
 
-    public void saveCustomer(Customer user) {
-        cusRepository.save(user);
+    public Optional<Customer> getCustomerByNicNumber(String nicNumber) {
+        return cusRepository.findByNicNumber(nicNumber);
+    }
+
+    public void saveCustomer(Customer customer) {
+        cusRepository.save(customer);
     }
 
     public void deleteCustomer(Long id) {
         cusRepository.deleteById(id);
     }
-
-
-
 }
