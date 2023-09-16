@@ -1,6 +1,7 @@
 package com.example.CustomerRegistrationApp.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Customer")
@@ -39,7 +40,19 @@ public class Customer {
     @Column(name = "remarks")
     private String remarks;
 
-//    getter and setter
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    @Column(name = "registration_date")
+    private Date registrationDate;
+
+
+    //    getter and setter
     public Long getCustomerId() {
         return customerId;
     }
@@ -119,6 +132,7 @@ public class Customer {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
 
 
 }

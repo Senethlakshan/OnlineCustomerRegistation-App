@@ -1,5 +1,7 @@
 package com.example.CustomerRegistrationApp.dto;
 
+import java.util.Date;
+
 public class CusDTO {
 
     private Long customerId;
@@ -13,6 +15,18 @@ public class CusDTO {
     private String password;
     private String nicNumber;
     private String remarks;
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    private Date registrationDate;
+
+    //getter and setter
 
     public Long getCustomerId() {
         return customerId;
